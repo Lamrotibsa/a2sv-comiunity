@@ -1,0 +1,17 @@
+class Solution:
+    def threeSumMulti(self, arr: List[int], target: int) -> int:
+        count=Counter(arr)
+        res=0
+        for i in count:
+            for j in count:
+                k = target - i - j
+                if i==j==k:
+                    res+=count[i]*(count[i]-1)*(count[i]-2)//6
+                elif i==j:
+                    res+=count[i]*(count[i]-1)//2*count[k]
+                elif i<j<k:
+                    res+=count[i]*count[j]*count[k]
+        mod =10**9+7
+        return res%mod
+                    
+    
