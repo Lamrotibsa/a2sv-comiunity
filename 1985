@@ -1,0 +1,11 @@
+class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -> str:
+        minheap=[-1*int(num) for num in nums]
+        heapq.heapify(minheap)
+        
+        while k>1:
+            heapq.heappop(minheap)
+            k-=1
+        
+        return str(-minheap[0])
+        
