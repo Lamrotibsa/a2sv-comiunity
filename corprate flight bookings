@@ -1,0 +1,12 @@
+class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        res=[0]*(n+1)
+        for s,e,seats in bookings:
+            res[s-1]+=seats
+            res[e]-=seats
+        count = 0
+        for i,num in enumerate(res):
+            count+=num
+            res[i]=count
+        return res[:n]
+        
