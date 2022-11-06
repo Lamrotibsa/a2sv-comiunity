@@ -1,0 +1,17 @@
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        stack=[]
+        res=0
+        count=sorted([(position[i],speed[i]) for i in range(len(speed))])[::-1]
+        
+        
+        for i in range(len(speed)):
+            new=(target-count[i][0])/count[i][1]
+            stack.append(new)
+            if len(stack)>=2 and new<=stack[-2]:
+                
+                stack.pop()
+            
+            
+            
+        return len(stack)
