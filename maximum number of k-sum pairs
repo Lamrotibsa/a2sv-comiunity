@@ -1,0 +1,15 @@
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        res=0
+        count=Counter(nums)
+        seen=set()
+        for n in count:
+            if (k-n) in count and n not in seen:
+                if n==(k-n):
+                    res+=count[n]//2
+                else:
+                    res+=min(count[n],count[k-n])
+                seen.add(n)
+                seen.add(k-n)
+                
+        return res
