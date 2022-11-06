@@ -1,0 +1,14 @@
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        res=[-1]*len(nums1)
+        num1index={n:i for i,n in enumerate(nums1)}
+        stack=[]
+        for i in range(len(nums2)):
+            curr=nums2[i]
+            while stack and stack[-1]<curr:
+                res[num1index[stack[-1]]]=curr
+                stack.pop()
+            if curr in nums1:
+                stack.append(curr)
+        return res
+                
