@@ -1,0 +1,16 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        count={}
+        for i,n in enumerate(s):
+            count[n]=i
+        print(count)
+        l=0
+        r=0
+        res=[]
+        for i,n in enumerate(s):
+            r=max(r,count[n])
+            if r==i:
+                res.append(r-l+1)
+                l=i+1
+        return res
+            
