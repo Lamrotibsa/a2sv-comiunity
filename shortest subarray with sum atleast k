@@ -1,0 +1,16 @@
+class Solution:
+    def shortestSubarray(self, nums: List[int], k: int) -> int:
+        q=collections.deque()
+        q.append([0,0])
+        total=0
+        res=float("inf")
+        for i,n in enumerate(nums):
+            total+=n
+            while q and total-q[0][-1]>=k:
+                res=min(res,i+1-q[0][0])
+                q.popleft()
+            while q and total<=q[-1][1]:
+                q.pop()
+            q.append([i+1,total])
+        return -1 if res==float("inf") else res
+                
