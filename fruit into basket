@@ -1,0 +1,16 @@
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        di={}
+        l=0
+        res=0
+        for r in range(len(fruits)):
+            di[fruits[r]]=r
+            if len(di)>2:
+                minval=min(di.values())
+                del di[fruits[minval]]
+                l=minval+1
+                
+            res=max(res,r-l+1)
+            
+        return res
+                
