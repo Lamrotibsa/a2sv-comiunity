@@ -1,0 +1,12 @@
+def gradingStudents(grades):
+    # Write your code here
+    new =[]
+    for values in grades:
+        
+        
+        if values >=38:
+            modv = values % 5
+            if modv >=3:
+                values +=(5-modv)
+        new.append(values)
+    return new
